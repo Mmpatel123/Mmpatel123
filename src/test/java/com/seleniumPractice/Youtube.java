@@ -7,43 +7,41 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.Thread.sleep;
 
-public class NopCommernceRegister {
+
+public class Youtube {
     WebDriver driver;
-    String LINK_URL="https://www.nopcommerce.com/en/demo";
+  String LINK_URL="https://www.youtube.com/watch?v=i0_m90T04uw";
     @Before
     public void setUp(){
 
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+      WebDriverManager.firefoxdriver().setup();
+      driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     }
     @Test
-    public void openhome() throws InterruptedException {
-driver.get(LINK_URL);
-driver.findElement(By.xpath("//*[@id=\"demo-page\"]/body/div[7]/header/div/div[3]/div[1]/ul/li[2]/ul/li[2]/a")).click();
-driver.findElement(By.name("FirstName")).sendKeys("Dev");
-Thread.sleep(1000L);
-driver.findElement(By.name("LastName")).sendKeys("Patel");
-Thread.sleep(1000L);
-driver.findElement(By.name("Email")).sendKeys("lightyear9461@gmail.com");
-Thread.sleep(500L);
-driver.findElement(By.name("ConfirmEmail")).sendKeys("lightyear9461@gmail.com");
-driver.findElement(By.name("Username")).sendKeys("Megha");
-Thread.sleep(500L);
+    public void openhome(){
 
-driver.findElement(By.name("Password")).sendKeys("AVADH@2009");
-driver.findElement(By.id("ConfirmPassword")).sendKeys("AVADH@2009");
+       driver.get(LINK_URL);
+        driver.manage().deleteAllCookies();
+        driver.manage().deleteCookieNamed("I AGREE");
+       driver.findElement(By.cssSelector("#text")).click();
+     //  driver.findElement(By.id("search")).sendKeys("kamariya");
+//driver.findElement(By.id("search")).sendKeys("kamariya");
 
-
+       // driver.findElement(By.xpath("//*[@id=\"button\"]")).submit();
     }
     @After
     public void tearDown(){
-driver.close();
+     // driver.close();
 
-    }
-}
+
+    }}
+

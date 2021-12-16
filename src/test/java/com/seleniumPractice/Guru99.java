@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 
-public class seleniumPracticeJavaJunit {
+public class Guru99 {
     WebDriver driver;
     String LINK_URL="http://demo.guru99.com/test/login.html";
     @Before
