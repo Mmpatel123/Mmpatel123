@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class NopCommernceRegister {
-    WebDriver driver;
+   WebDriver driver;
     String LINK_URL="https://demo.nopcommerce.com/";
     @Before
     public void setUp(){
@@ -28,18 +28,30 @@ public class NopCommernceRegister {
     public void openhome() throws InterruptedException {
 driver.get(LINK_URL);
 
-        WebElement staticDropdown =driver.findElement(By.className("menu-toggle"));
-        Select dropdown=new Select(staticDropdown);
-        //   dropdown.selectByIndex(3);
-        //   System.out.println(  dropdown.getFirstSelectedOption().getText());
-        dropdown.selectByVisibleText("Desktops");
+       driver.findElement(By.xpath("/html/body/div[6]/div[1]/div[1]/div[2]/div[1]/ul/li[1]/a")).click();
+       driver.findElement(By.id("gender-female")).click();
+       Thread.sleep(1000L);
+       driver.findElement(By.id("FirstName")).sendKeys("megha");
+       Thread.sleep(500L);
+       driver.findElement(By.id("LastName")).sendKeys("patel");
+        Thread.sleep(500L);
+        driver.findElement(By.id("Email")).sendKeys("lightyear9461@gmail.com");
+        Thread.sleep(500L);
+        driver.findElement(By.id("Company")).sendKeys("megha & Sons");
+        Thread.sleep(500L);
+        driver.findElement(By.name("Password")).sendKeys("M630ela1");
+        Thread.sleep(500L);
+        driver.findElement(By.name("ConfirmPassword")).sendKeys("M630ela1");
+        Thread.sleep(500L);
+        driver.findElement(By.id("register-button")).click();
+        System.out.println(    driver.getTitle());
 
 
 
     }
     @After
     public void tearDown(){
-//driver.close();
+driver.close();
 
     }
 }
