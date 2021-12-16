@@ -6,14 +6,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
 
-public class seleniumPracticeJavaJunit {
+public class NopCommernceRegister {
     WebDriver driver;
-    String LINK_URL="http://demo.guru99.com/test/login.html";
+    String LINK_URL="https://demo.nopcommerce.com/";
     @Before
     public void setUp(){
 
@@ -23,17 +25,21 @@ public class seleniumPracticeJavaJunit {
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     }
     @Test
-    public void openhome(){
+    public void openhome() throws InterruptedException {
 driver.get(LINK_URL);
-driver.findElement(By.id("email")).sendKeys("lightyear9461@gmail.com");
-driver.findElement(By.xpath("//*[@id=\"passwd\"]")).sendKeys("Avadh@2009");
-driver.findElement(By.id("passwd")).sendKeys("Avadh@2009");
-driver.findElement(By.name("SubmitLogin")).click();
+
+        WebElement staticDropdown =driver.findElement(By.className("menu-toggle"));
+        Select dropdown=new Select(staticDropdown);
+        //   dropdown.selectByIndex(3);
+        //   System.out.println(  dropdown.getFirstSelectedOption().getText());
+        dropdown.selectByVisibleText("Desktops");
+
+
 
     }
     @After
     public void tearDown(){
-driver.close();
+//driver.close();
 
     }
 }
