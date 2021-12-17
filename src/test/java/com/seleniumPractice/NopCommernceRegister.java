@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class NopCommernceRegister {
-    WebDriver driver;
+   WebDriver driver;
     String LINK_URL="https://demo.nopcommerce.com/";
     @Before
     public void setUp(){
