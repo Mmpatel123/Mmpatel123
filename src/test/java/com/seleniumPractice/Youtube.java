@@ -21,8 +21,8 @@ public class Youtube {
     @Before
     public void setUp(){
 
-      WebDriverManager.chromedriver().setup();
-      driver = new ChromeDriver();
+      WebDriverManager.firefoxdriver().setup();
+      driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     }
